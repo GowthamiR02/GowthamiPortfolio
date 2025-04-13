@@ -1,9 +1,16 @@
-import { ArrowRight, Download, ExternalLink, Github, Mail, MapPin } from "lucide-react"
+
+"use client";
+
+
+import { ArrowRight, Download, ExternalLink, Github, Mail, MapPin, Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { useState } from "react"
 
 export default function Portfolio() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/80 dark:from-background dark:to-background/90 transition-colors duration-300">
       {/* Navigation */}
@@ -13,8 +20,10 @@ export default function Portfolio() {
             href="#"
             className="text-xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
           >
-            Portfolio
+            MyPortfolio
           </Link>
+          
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-6">
             <Link href="#about" className="text-sm font-medium hover:text-primary transition-colors">
               About
@@ -29,16 +38,68 @@ export default function Portfolio() {
               Contact
             </Link>
           </nav>
+          
           <div className="flex items-center gap-4">
             <ThemeToggle />
             <Link
               href="#contact"
-              className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+              className="hidden md:inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
             >
               Get in Touch
             </Link>
+            
+            {/* Mobile menu button */}
+            <button 
+              className="md:hidden p-2 rounded-md text-muted-foreground hover:text-primary focus:outline-none"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
+        
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-background/95 backdrop-blur-sm pb-4 px-4">
+            <div className="flex flex-col space-y-2">
+              <Link 
+                href="#about" 
+                className="px-3 py-2 rounded-md text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link 
+                href="#skills" 
+                className="px-3 py-2 rounded-md text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Skills
+              </Link>
+              <Link 
+                href="#projects" 
+                className="px-3 py-2 rounded-md text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Projects
+              </Link>
+              <Link 
+                href="#contact" 
+                className="px-3 py-2 rounded-md text-sm font-medium hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+              <Link
+                href="#contact"
+                className="mt-2 inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
 
       <main className="flex flex-col items-center">
@@ -55,11 +116,11 @@ export default function Portfolio() {
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                     Hi, I'm{" "}
                     <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-                      John Doe
+                      Gowthami R
                     </span>
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    A passionate frontend developer creating beautiful and functional web experiences.
+                    A passionate full stack developer creating beautiful and functional web experiences.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -110,7 +171,7 @@ export default function Portfolio() {
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Who I Am</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I'm a frontend developer with a passion for creating beautiful, responsive, and user-friendly
+                  I'm a fullstack developer with a passion for creating beautiful, responsive, and user-friendly
                   websites.
                 </p>
               </div>
@@ -132,8 +193,7 @@ export default function Portfolio() {
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">My Journey</h3>
                       <p className="text-muted-foreground">
-                        With over 5 years of experience in web development, I've worked on a variety of projects from
-                        small business websites to large-scale web applications.
+                      As a passionate fresher in web development, I have worked on several hands-on projects including small websites and functional web applications, gaining practical experience and a strong foundation in modern web technologies.
                       </p>
                     </div>
                   </li>
@@ -158,7 +218,7 @@ export default function Portfolio() {
                 </ul>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-muted-foreground">Based in San Francisco, CA</span>
+                  <span className="text-muted-foreground">Coimbatore, India</span>
                 </div>
                 <div className="mt-4">
                   <Link
@@ -195,15 +255,16 @@ export default function Portfolio() {
                 "HTML5",
                 "CSS3",
                 "JavaScript",
-                "TypeScript",
                 "React",
-                "Next.js",
+                "python",
+                "django",
                 "Tailwind CSS",
-                "Node.js",
+                "boostrap",
                 "Git",
                 "Figma",
                 "Responsive Design",
-                "UI/UX",
+                "pandas",
+                "sql",
               ].map((skill) => (
                 <div
                   key={skill}
@@ -233,9 +294,9 @@ export default function Portfolio() {
             <div className="mx-auto grid max-w-5xl gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
               {[
                 {
-                  title: "E-commerce Website",
+                  title: "Adventure Website",
                   description: "A fully responsive e-commerce website with product filtering and cart functionality.",
-                  image: "/placeholder.svg?height=300&width=400",
+                  image: '/1.jpg',
                 },
                 {
                   title: "Portfolio Template",
@@ -328,18 +389,18 @@ export default function Portfolio() {
                   <div className="flex items-center gap-2">
                     <Mail className="h-5 w-5 text-muted-foreground" />
                     <a href="mailto:hello@example.com" className="text-foreground hover:text-primary transition-colors">
-                      hello@example.com
+                      gowthamikowsi02@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="h-5 w-5 text-muted-foreground" />
-                    <span>San Francisco, CA</span>
+                    <span>Coimbatore, India</span>
                   </div>
                 </div>
                 <div className="mt-6">
                   <h4 className="text-lg font-medium">Follow Me</h4>
                   <div className="mt-2 flex gap-4">
-                    <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                    <Link href="https://www.facebook.com/gowthamikowsi02/" className="text-muted-foreground hover:text-primary transition-colors">
                       <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
                           fillRule="evenodd"
@@ -348,7 +409,7 @@ export default function Portfolio() {
                         />
                       </svg>
                     </Link>
-                    <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                    <Link href="https://www.instagram.com/gowthami_r0201/" className="text-muted-foreground hover:text-primary transition-colors">
                       <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
                           fillRule="evenodd"
@@ -357,12 +418,7 @@ export default function Portfolio() {
                         />
                       </svg>
                     </Link>
-                    <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                      <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                      </svg>
-                    </Link>
-                    <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                    <Link href="https://github.com/GowthamiR02/GowthamiPortfolio" className="text-muted-foreground hover:text-primary transition-colors">
                       <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
                           fillRule="evenodd"
@@ -422,7 +478,7 @@ export default function Portfolio() {
       <footer className="w-full border-t py-6 md:py-0 bg-muted/20">
         <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} John Doe. All rights reserved.
+            © {new Date().getFullYear()} Gowthami R. All rights reserved.
           </p>
           <div className="flex gap-4">
             <Link href="#" className="text-sm font-medium hover:text-primary transition-colors">
