@@ -323,7 +323,7 @@ export default function Portfolio() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-flex items-center justify-center rounded-md bg-muted px-3 py-1 text-sm font-medium">
-                  Portfolio
+                  
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   My Projects
