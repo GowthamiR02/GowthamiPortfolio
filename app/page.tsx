@@ -150,7 +150,7 @@ export default function Portfolio() {
               <div className="relative mx-auto">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-purple-600 blur-md opacity-75 animate-pulse" />
                 <Image
-                  src="/placeholder.svg?height=600&width=600"
+                  src='/6.jpg'
                   width={600}
                   height={600}
                   alt="Profile"
@@ -167,7 +167,7 @@ export default function Portfolio() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-flex items-center justify-center rounded-md bg-muted px-3 py-1 text-sm font-medium">
-                  About Me
+                
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Who I Am</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -180,7 +180,7 @@ export default function Portfolio() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
+                  src='/7.jpeg'
                   width={400}
                   height={400}
                   alt="About Me"
@@ -242,7 +242,7 @@ export default function Portfolio() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-flex items-center justify-center rounded-md bg-muted px-3 py-1 text-sm font-medium">
-                  Expertise
+                  
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">My Skills</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -256,15 +256,14 @@ export default function Portfolio() {
                 "CSS3",
                 "JavaScript",
                 "React",
-                "python",
-                "django",
+                "Python",
+                "Django",
                 "Tailwind CSS",
-                "boostrap",
+                "Boostrap",
                 "Git",
                 "Figma",
-                "Responsive Design",
-                "pandas",
-                "sql",
+                "Pandas",
+                "Sql",
               ].map((skill) => (
                 <div
                   key={skill}
@@ -299,29 +298,19 @@ export default function Portfolio() {
                   image: '/1.jpg',
                 },
                 {
-                  title: "Portfolio Template",
+                  title: "Django backend add& delete Project",
                   description: "A customizable portfolio template for creative professionals.",
-                  image: "/placeholder.svg?height=300&width=400",
+                  image: '/2.jpg',
                 },
                 {
-                  title: "Task Management App",
+                  title: "FCTC Wallet App",
                   description: "A drag-and-drop task management application with user authentication.",
-                  image: "/placeholder.svg?height=300&width=400",
+                  image: '/3.jpg',
                 },
                 {
-                  title: "Restaurant Website",
+                  title: "Sales Analysis",
                   description: "A website for a local restaurant with online reservation system.",
-                  image: "/placeholder.svg?height=300&width=400",
-                },
-                {
-                  title: "Weather Dashboard",
-                  description: "A weather dashboard that displays current and forecasted weather data.",
-                  image: "/placeholder.svg?height=300&width=400",
-                },
-                {
-                  title: "Fitness Tracker",
-                  description: "A fitness tracking application with progress visualization.",
-                  image: "/placeholder.svg?height=300&width=400",
+                  image: '/4.jpg',
                 },
               ].map((project, index) => (
                 <div
@@ -342,13 +331,13 @@ export default function Portfolio() {
                     <p className="mt-2 text-muted-foreground">{project.description}</p>
                     <div className="mt-4 flex gap-2">
                       <Link
-                        href="#"
+                        href="https://github.com/GowthamiR02?tab=repositories"
                         className="inline-flex items-center text-sm font-medium text-primary hover:underline"
                       >
                         View Project <ExternalLink className="ml-1 h-4 w-4" />
                       </Link>
                       <Link
-                        href="#"
+                        href="https://github.com/GowthamiR02"
                         className="inline-flex items-center text-sm font-medium text-primary hover:underline"
                       >
                         GitHub <Github className="ml-1 h-4 w-4" />
@@ -473,23 +462,6 @@ export default function Portfolio() {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="w-full border-t py-6 md:py-0 bg-muted/20">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} Gowthami R. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <Link href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:text-primary transition-colors">
-              Terms of Service
-            </Link>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
