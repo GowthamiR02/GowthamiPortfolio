@@ -174,7 +174,7 @@ export default function Portfolio() {
               <div className="relative mx-auto">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-purple-600 blur-md opacity-75 animate-pulse" />
                 <Image
-                  src="/6.jpg"
+                  src="/8.gif"
                   width={600}
                   height={600}
                   alt="Profile"
